@@ -1,10 +1,10 @@
 import React from "react";
-import "./TodoSearch.css";
+import "./styles.css";
 
-function TodoSearch(){
+function TodoSearch({ searchValue, setSearchValue }){
     // Functions starting with React.use... are React Hooks. 
     // If I call setState, the component will be re-rendered.
-    const [searchValue, setSearchValue] = React.useState("");
+    // const [searchValue, setSearchValue] = React.useState("");
 
     const onSearchValueChange = (event) => {
         console.log(event.target.value);
@@ -15,15 +15,14 @@ function TodoSearch(){
 
     // If TodoSearch returns an array is no need to use React.Fragment, each element
     // can be separated with a comma. 
-    return [
+    return (
         <input 
             className="TodoSearch" 
             placeholder="Buscar..."
             value={searchValue}
             onChange={onSearchValueChange}
-        />,
-        <p>{searchValue}</p>
-    ];
+        />
+    );
 }
 
 export { TodoSearch };

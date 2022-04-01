@@ -1,5 +1,5 @@
 import React from "react";
-import "./CreateTodoButton.css";
+import "./styles.css";
 
 function CreateTodoButton(props) {
     const onClickCreateButton = (msg) => {
@@ -12,7 +12,8 @@ function CreateTodoButton(props) {
             // Events always wait for a function
             // onClick={() => console.log("click")}
             // Even if onClickCreateButton is a function I have to send it inside an 
-            // arrow function.
+            // arrow function because it has an argument. Without arguments I can send 
+            // it just as a variable.
             onClick={() => onClickCreateButton("Opening modal...")}
         >
             +
