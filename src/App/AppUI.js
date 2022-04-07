@@ -6,13 +6,15 @@ import { TodoList } from "../TodoList/index.js";
 import { TodoSearch } from "../TodoSearch/index.js";
 
 function AppUI({
+  loading,
   totalTodos,
   completedTodos,
   searchValue,
   setSearchValue,
   searchedTodos,
   toggleCompleteTodos,
-  deleteTodos
+  deleteTodos,
+  error
 }) {
   return (
     <React.Fragment>
@@ -26,6 +28,12 @@ function AppUI({
         setSearchValue={setSearchValue}
       />
       <TodoList>
+        {/* && could be an AND operator or could be used as "then" to execute 
+        an action */}
+        {error && <p>Hubo un error.</p>}
+        {loading && <p>Cargando...</p>}
+        {(!loading && !searchedTodos.lenght) && <p>Creá tu primer tarea!</p>}
+
         {searchedTodos.map(todo => (
           <TodoItem 
             key={todo.text} 
