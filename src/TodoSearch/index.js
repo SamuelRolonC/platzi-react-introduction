@@ -1,10 +1,12 @@
 import React from "react";
+import { TodoContext } from "../TodoContext";
 import "./styles.css";
 
-function TodoSearch({ searchValue, setSearchValue }){
+function TodoSearch(){
     // Functions starting with React.use... are React Hooks. 
     // If I call setState, the component will be re-rendered.
     // const [searchValue, setSearchValue] = React.useState("");
+    const { searchValue, setSearchValue } = React.useContext(TodoContext);
 
     const onSearchValueChange = (event) => {
         console.log(event.target.value);
