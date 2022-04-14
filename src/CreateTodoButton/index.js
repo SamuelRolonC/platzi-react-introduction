@@ -2,8 +2,8 @@ import React from "react";
 import "./styles.css";
 
 function CreateTodoButton(props) {
-    const onClickCreateButton = (msg) => {
-        alert(msg);
+    const onClickCreateButton = () => {
+        props.setOpenModal(true);
     }
 
     return (
@@ -14,7 +14,7 @@ function CreateTodoButton(props) {
             // Even if onClickCreateButton is a function I have to send it inside an 
             // arrow function because it has an argument. Without arguments I can send 
             // it just as a variable.
-            onClick={() => onClickCreateButton("Opening modal...")}
+            onClick={onClickCreateButton}
         >
             +
         </button>

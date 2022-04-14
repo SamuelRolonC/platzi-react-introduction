@@ -1,4 +1,5 @@
 import React from "react";
+import { TodoContext } from "../TodoContext";
 import "./styles.css";
 
 // Html attributes can be added as variables. 
@@ -6,13 +7,14 @@ import "./styles.css";
 //     color: 'red'
 // }
 
-function TodoCounter({ total, completed }) {
-    // Using "props" as parameter of TodoCounter I can access "total" and "completed"
+function TodoCounter() {
+    // Using "props" as parameter of TodoCounter I can access "totalTodos" and "completedTodos"
     // with the following line
-    // const { total, completed } = props
+    // const { totalTodos, completedTodos } = props
+    const { totalTodos, completedTodos } = React.useContext(TodoContext);
 
     return (
-        <h2 className="TodoCounterTitle">Has completado {completed} de {total} TODOs</h2>
+        <h2 className="TodoCounterTitle">Has completado {completedTodos} de {totalTodos} TODOs</h2>
         // Html attributes can be added in line
         // <h2 style={{
         //     color: 'red'

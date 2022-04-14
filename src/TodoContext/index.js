@@ -20,7 +20,8 @@ function TodoProvider(props) {
         error
     } = useLocalStorage(STORAGEKEY, []);
     const [searchValue, setSearchValue] = React.useState("");
-    
+    const [openModal, setOpenModal] = React.useState(false);
+
     // !!todo.completed is a short way of todo.completed == true 
     // using double negation.
     const completedTodos = todos.filter(todo => !!todo.completed).length;
@@ -70,7 +71,9 @@ function TodoProvider(props) {
             setSearchValue,
             searchedTodos,
             toggleCompleteTodos,
-            deleteTodos
+            deleteTodos,
+            openModal,
+            setOpenModal
         }}>
             {props.children}
         </TodoContext.Provider>
