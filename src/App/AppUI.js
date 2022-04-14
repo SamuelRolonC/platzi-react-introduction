@@ -40,7 +40,7 @@ function AppUI() {
                     onDelete={() => deleteTodos(todo.text)}
                   />
                 ))}
-              </TodoList>,
+              </TodoList>
 
               {openModal && (
                 <Modal>
@@ -50,6 +50,7 @@ function AppUI() {
               
               <CreateTodoButton 
                 setOpenModal={setOpenModal}
+                openModal={openModal}
               />
             </React.Fragment>
           )}
