@@ -3,8 +3,7 @@ import "./styles.css";
 
 function CreateTodoButton(props) {
     const onClickCreateButton = () => {
-        console.log(props.openModal);
-        props.setOpenModal(!props.openModal);
+        props.setOpenModal(prevState => !prevState);
     }
 
     return (

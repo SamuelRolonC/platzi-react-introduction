@@ -5,7 +5,9 @@ import { TodoCounter } from "../TodoCounter/index.js";
 import { TodoItem } from "../TodoItem/index.js";
 import { TodoList } from "../TodoList/index.js";
 import { TodoSearch } from "../TodoSearch/index.js";
+import { TodoForm } from "../TodoForm/index.js";
 import { Modal } from "../Modal/index.js";
+import { ThreeDots } from "../ThreeDots/index.js";
 
 function AppUI() {
   return (
@@ -28,8 +30,10 @@ function AppUI() {
                 {/* && could be an AND operator or could be used as "then" to execute 
                 an action */}
                 {error && <p>Hubo un error.</p>}
-                {loading && <p>Cargando...</p>}
-                {(!loading && !searchedTodos.lenght) && <p>Creá tu primer tarea!</p>}
+                {loading && (
+                  <ThreeDots />
+                )}
+                {(!loading && searchedTodos.lenght) && <p>Creá tu primer tarea!</p>}
         
                 {searchedTodos.map(todo => (
                   <TodoItem 
@@ -44,17 +48,16 @@ function AppUI() {
 
               {openModal && (
                 <Modal>
-                  <p>Modal PopUp</p>  
+                  <TodoForm />
                 </Modal>
               )}
               
               <CreateTodoButton 
                 setOpenModal={setOpenModal}
-                openModal={openModal}
               />
             </React.Fragment>
           )}
-      </TodoContext.Consumer>      
+      </TodoContext.Consumer>
     </React.Fragment>
   );
 }
