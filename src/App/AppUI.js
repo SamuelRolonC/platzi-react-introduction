@@ -7,7 +7,10 @@ import { TodoList } from "../TodoList/index.js";
 import { TodoSearch } from "../TodoSearch/index.js";
 import { TodoForm } from "../TodoForm/index.js";
 import { Modal } from "../Modal/index.js";
-import { ThreeDots } from "../ThreeDots/index.js";
+// import { ThreeDots } from "../ThreeDots/index.js";
+import { TodoError } from "../TodoError";
+import { TodoLoading } from "../TodoLoading";
+import { TodoEmpty } from "../TodoEmpty";
 
 function AppUI() {
   return (
@@ -29,11 +32,9 @@ function AppUI() {
               <TodoList>
                 {/* && could be an AND operator or could be used as "then" to execute 
                 an action */}
-                {error && <p>Hubo un error.</p>}
-                {loading && (
-                  <ThreeDots />
-                )}
-                {(!loading && searchedTodos.lenght) && <p>Creá tu primer tarea!</p>}
+                {error && <TodoError error={error} />}
+                {loading && <TodoLoading />}
+                {(!loading && searchedTodos.lenght) && <TodoEmpty />}
         
                 {searchedTodos.map(todo => (
                   <TodoItem 
